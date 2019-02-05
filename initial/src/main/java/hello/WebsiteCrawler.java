@@ -34,7 +34,9 @@ public class WebsiteCrawler {
             Thread.sleep(5000);
             // Take the screenshot and copy to the specified directory
             File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(src, new File("./test-image.png"));
+            // FileUtils.copyFile(src, new File("./test-image.png"));
+            ImageUploader imageUploader = new ImageUploader();
+            imageUploader.uploadImage(url, src);
         } catch (Exception e) {
             e.printStackTrace();
         }
